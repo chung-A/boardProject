@@ -31,7 +31,7 @@ public class CmmnController {
     @GetMapping("/home")
     public String home(Model model){
         model.addAttribute("data","안녕 나는 동현이야!");
-        System.out.println("0.0.3 ㅂㅓ전이야!!");
+        System.out.println("0.0.3 전이야!!");
         return "index";
     }
 
