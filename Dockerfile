@@ -6,19 +6,31 @@
 #RUN chmod +x ./gradlew
 #CMD ["./gradlew","bootRun"]
 
-FROM openjdk:8-jdk
+FROM openjdk:8-jdk AS builder
 
 LABEL maintainer="ydh9517@naver.com"
 
-VOLUME /tmp
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle .
+COPY settings.gradle .
+COPY src src
+
+RUN chmod +x ./gradlew
+RUN ./gradlew bootJar
+
+FROM openjdk:8-jdk
+COPY --from=builder build/libs/*.jar app.jar
 
 EXPOSE 8080
 
-ARG JAR_FILE=build/libs/*jar
+ENTRYPOINT ["java","-jar","/app.jar"]
 
-ADD ${JAR_FILE} board.jar
-
-ENTRYPOINT ["java","-jar","/board.jar"]
+#ARG JAR_FILE=build/libs/*jar
+#
+#ADD ${JAR_FILE} board.jar
+#
+#ENTRYPOINT ["java","-jar","/board.jar"]
 
 
 # ---------
