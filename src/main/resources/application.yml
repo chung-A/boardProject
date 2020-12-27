@@ -4,13 +4,14 @@ spring:
   datasource:
     # 에러먹어서 개고생한 이유ㅋㅋㅋㅋㅋㅋ
     # jar 파일 빌드한거는 그대로인데 코드 아무리 고쳐봐야 반영될리가 없지ㅋㅋ 아ㅋㅋㅋ
-    # 맥북에서는 Localhost db 에 접근하기 위해서는 localhost 대신 host.docker.internal 라고 입력해줘야함
-    password: nwrnadmin2019
-    url: jdbc:mysql://pfdy.cld2apqurd6s.ap-northeast-2.rds.amazonaws.com:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
-    username: nwrn
-#    url: jdbc:mysql://host.docker.internal:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
-#    username: root
-#    password: 71405999
+    # 맥북에서는 Localhost db 에 접근하기 위해서는 localhost 대신 host.docker.internpassword: nwrnadmin2019
+    #    url: jdbc:mysql://pfdy.cld2apqurd6s.ap-northeast-2.rds.amazonaws.com:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    #    username: nwrn 라고 입력해줘야함
+
+    url: jdbc:mysql://host.docker.internal:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+#    url: jdbc:mysql://localhost:3306/test?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 71405999
     driver-class-name: com.mysql.cj.jdbc.Driver
     #driver-class-name: org.h2.Driver
   jpa:
